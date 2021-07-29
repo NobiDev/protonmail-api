@@ -3,9 +3,16 @@ const ProtonMail = require('../../lib/proton-mail')
 require('dotenv').config()
 const username = process.env.PM_USERNAME
 const password = process.env.PM_PASSWORD
+const puppeteerOpts = {}
+
+if (process.env.PM_UI_TEST) {
+  puppeteerOpts.headless = false
+}
+
 const pm = new ProtonMail({
   username,
-  password
+  password,
+  puppeteerOpts
 })
 
 before(async () => {
