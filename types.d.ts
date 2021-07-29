@@ -1,9 +1,11 @@
-import type { LaunchOptions } from 'puppeteer';
+import type { Browser, LaunchOptions, Page } from 'puppeteer';
 
 export interface ProtonMailConfig {
   username: string;
   password: string;
   puppeteerOpts?: LaunchOptions;
+  browser?: Browser;
+  page?: Page;
 }
 
 export interface Address {
